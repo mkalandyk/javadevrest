@@ -1,5 +1,7 @@
 package com.mikiruki.javadevrest.models;
 
+import org.springframework.hateoas.ResourceSupport;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.LinkedList;
@@ -7,12 +9,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "Course")
-public class Course {
+public class Course extends ResourceSupport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    int id;
+    Long courseId;
 
     @Column(name = "title")
     String title;
@@ -31,19 +33,19 @@ public class Course {
     public Course() {
     }
 
-    public Course(int id, String title, Date term, List<Student> students) {
-        this.id = id;
+    public Course(Long courseId, String title, Date term, List<Student> students) {
+        this.courseId = courseId;
         this.title = title;
         this.term = term;
         this.students = students;
     }
 
-    public int getId() {
-        return id;
+    public Long getCourseId() {
+        return courseId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
     }
 
     public String getTitle() {

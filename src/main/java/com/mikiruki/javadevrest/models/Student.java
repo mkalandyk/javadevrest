@@ -1,6 +1,7 @@
 package com.mikiruki.javadevrest.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -9,12 +10,12 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Student")
-public class Student {
+public class Student extends ResourceSupport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    int id;
+    int studentId;
 
     @Column(name = "firstName")
     String firstName;
@@ -44,8 +45,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, String firstName, String lastName, String email, String password, String faculty, Integer yearOfStudy, Integer albumNumber, List<Course> courses) {
-        this.id = id;
+    public Student(int studentId, String firstName, String lastName, String email, String password, String faculty, Integer yearOfStudy, Integer albumNumber, List<Course> courses) {
+        this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -56,12 +57,12 @@ public class Student {
         this.courses = courses;
     }
 
-    public int getId() {
-        return id;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getFirstName() {

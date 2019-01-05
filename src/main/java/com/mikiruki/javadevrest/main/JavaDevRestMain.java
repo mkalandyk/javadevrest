@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan("com.mikiruki.javadevrest.controllers")
+@ComponentScan("com.mikiruki.javadevrest.configs")
 @SpringBootApplication
 public class JavaDevRestMain {
     public static void main(String[] args) {
